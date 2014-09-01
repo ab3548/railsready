@@ -69,8 +69,6 @@ echo " * libs needed to run Rails (sqlite, mysql, etc)"
 echo " * Bundler, Passenger, and Rails gems"
 echo " * Git"
 
-echo -e "\nThis script is always changing."
-echo "Make sure you got it from https://github.com/joshfng/railsready"
 
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }
@@ -85,7 +83,7 @@ echo -e "\n=> Downloading and running recipe for $distro...\n"
 if [[ $system_os = *linux* ]] ; then
   wget --no-check-certificate -O $railsready_path/src/$distro.sh https://raw.githubusercontent.com/joshfng/railsready/master/recipes/$distro.sh && cd $railsready_path/src && bash $distro.sh $ruby_version $ruby_version_string $ruby_source_url $ruby_source_tar_name $ruby_source_dir_name $whichRuby $railsready_path $log_file
 else
-  cd $railsready_path/src && curl -O https://raw.githubusercontent.com/joshfng/railsready/master/recipes/$distro.sh && bash $distro.sh $ruby_version $ruby_version_string $ruby_source_url $ruby_source_tar_name $ruby_source_dir_name $whichRuby $railsready_path $log_file
+  cd $railsready_path/src && curl -O https://raw.githubusercontent.com/bemyeyes/railsready/master/recipes/$distro.sh && bash $distro.sh $ruby_version $ruby_version_string $ruby_source_url $ruby_source_tar_name $ruby_source_dir_name $whichRuby $railsready_path $log_file
 fi
 echo -e "\n==> done running $distro specific commands..."
 
