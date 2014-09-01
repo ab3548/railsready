@@ -73,21 +73,8 @@ echo -e "\nThis script is always changing."
 echo "Make sure you got it from https://github.com/joshfng/railsready"
 
 # Check if the user has sudo privileges.
-sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }
+sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }_)B+
 
-# Ask if you want to build Ruby or install RVM
-whichRuby="3"
-
-if [ $whichRuby -eq 1 ] ; then
-  echo -e "\n\n!!! Set to build Ruby from source and install system wide !!! \n"
-elif [ $whichRuby -eq 2 ] ; then
-  echo -e "\n\n!!! Set to install RVM for user: $script_runner !!! \n"
-elif [ $whichRuby -eq 3 ] ; then
-  echo -e "\n\n!!! Set to install rbenv for user: $script_runner !!! \n"
-else
-  echo -e "\n\n!!! Must choose to build Ruby, RVM or rbenv, exiting !!!"
-  exit 1
-fi
 
 echo -e "\n=> Creating install dir..."
 cd && mkdir -p railsready/src && cd railsready && touch install.log
@@ -103,54 +90,6 @@ fi
 echo -e "\n==> done running $distro specific commands..."
 
 #now that all the distro specific packages are installed lets get Ruby
-if [ $whichRuby -eq 1 ] ; then
-  # Install Ruby
-  echo -e "\n=> Downloading Ruby $ruby_version_string \n"
-  cd $railsready_path/src && wget $ruby_source_url
-  echo -e "\n==> done..."
-  echo -e "\n=> Extracting Ruby $ruby_version_string"
-  tar -xzf $ruby_source_tar_name >> $log_file 2>&1
-  echo "==> done..."
-  echo -e "\n=> Building Ruby $ruby_version_string (this will take a while)..."
-  cd  $ruby_source_dir_name && ./configure --prefix=/usr/local >> $log_file 2>&1 \
-   && make >> $log_file 2>&1 \
-    && sudo make install >> $log_file 2>&1
-  echo "==> done..."
-elif [ $whichRuby -eq 2 ] ; then
-  #thanks wayneeseguin :)
-  echo -e "\n=> Installing RVM the Ruby enVironment Manager http://rvm.beginrescueend.com/rvm/install/ \n"
-  \curl -L https://get.rvm.io | bash >> $log_file 2>&1
-  echo -e "\n=> Setting up RVM to load with new shells..."
-  #if RVM is installed as user root it goes to /usr/local/rvm/ not ~/.rvm
-  if [ -f ~/.bash_profile ] ; then
-    if [ -f ~/.profile ] ; then
-      echo 'source ~/.profile' >> "$HOME/.bash_profile"
-    fi
-  fi
-  echo "==> done..."
-  echo "=> Loading RVM..."
-  if [ -f ~/.profile ] ; then
-    source ~/.profile
-  fi
-  if [ -f ~/.bashrc ] ; then
-    source ~/.bashrc
-  fi
-  if [ -f ~/.bash_profile ] ; then
-    source ~/.bash_profile
-  fi
-  if [ -f /etc/profile.d/rvm.sh ] ; then
-    source /etc/profile.d/rvm.sh
-  fi
-  echo "==> done..."
-  echo -e "\n=> Installing Ruby $ruby_version_string (this will take a while)..."
-  echo -e "=> More information about installing rubies can be found at http://rvm.beginrescueend.com/rubies/installing/ \n"
-  rvm install $ruby_version >> $log_file 2>&1
-  echo -e "\n==> done..."
-  echo -e "\n=> Using $ruby_version and setting it as default for new shells..."
-  echo "=> More information about Rubies can be found at http://rvm.beginrescueend.com/rubies/default/"
-  rvm --default use $ruby_version >> $log_file 2>&1
-  echo "==> done..."
-elif [ $whichRuby -eq 3 ] ; then
   echo -e "\n=> Installing rbenv https://github.com/sstephenson/rbenv \n"
   git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
@@ -171,10 +110,6 @@ elif [ $whichRuby -eq 3 ] ; then
   rbenv rehash
   rbenv global $ruby_version_string
   echo "===> done..."
-else
-  echo "How did you even get here?"
-  exit 1
-fi
 
 # Reload bash
 echo -e "\n=> Reloading shell so ruby and rubygems are available..."
@@ -184,23 +119,11 @@ fi
 echo "==> done..."
 
 echo -e "\n=> Updating Rubygems..."
-if [ $whichRuby -eq 1 ] ; then
-  sudo gem update --system --no-ri --no-rdoc >> $log_file 2>&1
-elif [ $whichRuby -eq 2 ] ; then
   gem update --system --no-ri --no-rdoc >> $log_file 2>&1
-elif [ $whichRuby -eq 3 ] ; then
-  gem update --system --no-ri --no-rdoc >> $log_file 2>&1
-fi
 echo "==> done..."
 
 echo -e "\n=> Installing Bundler, Passenger and Rails..."
-if [ $whichRuby -eq 1 ] ; then
-  sudo gem install bundler passenger rails --no-ri --no-rdoc -f >> $log_file 2>&1
-elif [ $whichRuby -eq 2 ] ; then
-  gem install bundler passenger rails --no-ri --no-rdoc -f >> $log_file 2>&1
-elif [ $whichRuby -eq 3 ] ; then
-  gem install bundler passenger rails --no-ri --no-rdoc -f >> $log_file 2>&1
-fi
+ gem install bundler passenger rails --no-ri --no-rdoc -f >> $log_file 2>&1
 echo "==> done..."
 
 echo -e "\n#################################"
