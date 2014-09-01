@@ -73,7 +73,7 @@ echo -e "\nThis script is always changing."
 echo "Make sure you got it from https://github.com/joshfng/railsready"
 
 # Check if the user has sudo privileges.
-sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }_)B+
+sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }_)
 
 
 echo -e "\n=> Creating install dir..."
