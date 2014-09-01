@@ -76,13 +76,7 @@ echo "Make sure you got it from https://github.com/joshfng/railsready"
 sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }
 
 # Ask if you want to build Ruby or install RVM
-echo -e "\n"
-echo "Build Ruby or install RVM?"
-echo "=> 1. Build from source"
-echo "=> 2. Install RVM"
-echo "=> 3. Install rbenv"
-echo -n "Select your Ruby type [1, 2, 3]? "
-read whichRuby
+whichRuby 3
 
 if [ $whichRuby -eq 1 ] ; then
   echo -e "\n\n!!! Set to build Ruby from source and install system wide !!! \n"
