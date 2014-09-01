@@ -39,14 +39,14 @@ sudo $pm -y install \
     libxml2 libffi-dev libyaml-dev \
     libxslt-dev autoconf libc6-dev \
     libreadline6-dev zlib1g-dev libcurl4-openssl-dev \
-    libtool 
+    libtool  &> /dev/null
 echo "==> done..."
 
 echo -e "\n=> Installing libs needed for sqlite and mysql..."
-sudo $pm -y install libsqlite3-0 sqlite3 libsqlite3-dev libmysqlclient-dev 
+sudo $pm -y install libsqlite3-0 sqlite3 libsqlite3-dev libmysqlclient-dev  &> /dev/null
 echo "==> done..."
 
 # Install git-core
 echo -e "\n=> Installing git..."
-sudo $pm -y install git-core 
+sudo $pm -y install git-core  &> /dev/null
 echo "==> done..."
