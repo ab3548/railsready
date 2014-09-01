@@ -43,7 +43,7 @@ sudo $pm -y install \
 echo "==> done..."
 
 echo -e "\n=> Installing libs needed for sqlite and mysql..."
-sudo $pm -y install libsqlite3-0 sqlite3 libsqlite3-dev libmysqlclient-dev >> $log_file 2>&1
+sudo $pm -y install libsqlite3-0 sqlite3 libsqlite3-dev libmysqlclient-dev 
 echo "==> done..."
 
 # Install git-core
