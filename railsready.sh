@@ -13,7 +13,7 @@ cd ruby-2.0.0-p353/
 make
 sudo make install
 gem update --system --no-ri --no-rdoc
-gem install bundler passenger rails --no-ri --no-rdoc -f
+gem install bundler passenger sinatra --no-ri --no-rdoc -f
 sudo locale-gen en_GB.UTF-8
 passenger-install-apache2-module --auto
 
