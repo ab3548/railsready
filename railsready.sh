@@ -28,7 +28,7 @@ echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
  
 touch /etc/apache2/sites-enabled/bemyeyes
 
-echo "<VirtualHost *:80>" >> /etc/apache2/sites-enabled/bemyeyes
+echo "<VirtualHost *:3000>" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    ServerName localhost" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    DocumentRoot /vagrant/public" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    <Directory /vagrant/public>" >> /etc/apache2/sites-enabled/bemyeyes
@@ -37,3 +37,5 @@ echo "        Allow from all" >> /etc/apache2/sites-enabled/bemyeyes
 echo "        Options -MultiViews" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    </Directory>" >> /etc/apache2/sites-enabled/bemyeyes
 echo "</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes
+
+apachectl -k restart
