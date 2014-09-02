@@ -16,3 +16,11 @@ gem update --system --no-ri --no-rdoc
 gem install bundler passenger rails --no-ri --no-rdoc -f
 sudo locale-gen en_GB.UTF-8
 passenger-install-apache2-module --auto
+
+#install mongo
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get update
+sudo apt-get install mongodb-org
+sudo service mongod start
+
