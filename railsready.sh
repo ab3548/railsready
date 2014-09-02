@@ -25,7 +25,6 @@ sudo -i
 echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
 echo "  PassengerRoot /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50" >> /etc/apache2/apache2.conf
 echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
-echo "ServerName 192.168.33.10" >> /etc/apache2/apache2.conf 
 
 
 touch /etc/apache2/sites-enabled/bemyeyes
@@ -34,10 +33,12 @@ echo "<VirtualHost *:3000>" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    ServerName localhost" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    DocumentRoot /vagrant/public" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    <Directory /vagrant/public>" >> /etc/apache2/sites-enabled/bemyeyes
-echo "        Require all granted" >> /etc/apache2/sites-enabled/bemyeyes
 echo "        Allow from all" >> /etc/apache2/sites-enabled/bemyeyes
 echo "        Options -MultiViews" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    </Directory>" >> /etc/apache2/sites-enabled/bemyeyes
 echo "</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes
+
+cd /vagrant 
+bundle install
 
 apachectl -k restart
