@@ -10,3 +10,4 @@ make
 sudo make install
 gem update --system --no-ri --no-rdoc
 gem install bundler passenger rails --no-ri --no-rdoc -f
+sudo locale-gen en_GB.UTF-8
