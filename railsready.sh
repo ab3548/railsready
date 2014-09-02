@@ -18,7 +18,13 @@ sudo locale-gen en_GB.UTF-8
 passenger-install-apache2-module --auto
 
 #install mongo
-sudo apt-get -y install mongodb
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get update
+sudo apt-get install mongodb-10gen
+sudo apt-get install mongodb-10gen=2.4.10
+echo "mongodb-10gen hold" | sudo dpkg --set-selections
+sudo service mongodb start
 sudo apt-get -y install mongodb-clients
 
 sudo -i
@@ -36,6 +42,8 @@ echo "        Allow from all" >> /etc/apache2/sites-enabled/bemyeyes
 echo "        Options -MultiViews" >> /etc/apache2/sites-enabled/bemyeyes
 echo "    </Directory>" >> /etc/apache2/sites-enabled/bemyeyes
 echo "</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes
+
+echo "Listen 3000" >>/etc/apache2/ports.conf
 
 cd /vagrant 
 bundle install
