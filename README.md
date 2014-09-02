@@ -9,7 +9,7 @@
 
 
   * Ruby 2.0.0p481 
-  * libs needed to run Rails and sinatra (sqlite, etc)
+  * libs needed to run sinatra (sqlite, etc)
   * Bundler, Passenger, and Rails gems
   * Git
 
