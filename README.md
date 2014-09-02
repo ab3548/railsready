@@ -8,13 +8,12 @@
 
 
 
-  * Ruby 2.0.0p481 
+  * Ruby 2.0.0p353 
   * libs needed to run sinatra (sqlite, etc)
   * mongodb
   * Bundler, Passenger, and Rails gems
   * Git
 
-Please note: If you are running on a super slow connection your sudo session may timeout and you'll have to enter your password again. If you're running this on an EC2 or RS instance it shouldn't be problem.
 
 It will install Apache, and then run  `passenger-install-apache2-module`
 
