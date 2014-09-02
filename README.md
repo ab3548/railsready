@@ -10,6 +10,7 @@
 
   * Ruby 2.0.0p481 
   * libs needed to run sinatra (sqlite, etc)
+  * mongodb
   * Bundler, Passenger, and Rails gems
   * Git
 
