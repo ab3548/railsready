@@ -21,8 +21,8 @@ passenger-install-apache2-module --auto
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 sudo apt-get update
-sudo apt-get install mongodb-10gen
-sudo apt-get install mongodb-10gen=2.4.10
+#sudo apt-get install mongodb-10gen
+sudo apt-get install mongodb-10gen=2.4.12
 echo "mongodb-10gen hold" | sudo dpkg --set-selections
 sudo service mongodb start
 sudo apt-get -y install mongodb-clients
