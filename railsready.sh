@@ -55,3 +55,7 @@ cd /vagrant
 bundle install
 
 apachectl -k restart
+
+#just to make the terminal usable
+sudo apt-get install git zsh
+curl -L http://install.ohmyz.sh | sh
