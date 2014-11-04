@@ -48,7 +48,7 @@ echo "<VirtualHost *:3000>
       AllowOverride None
       Require all granted
     </Directory>
-</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes
+</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes.conf
 
 
 echo "Listen 3000" >>/etc/apache2/ports.conf
@@ -58,6 +58,3 @@ bundle install
 
 apachectl -k restart
 
-#just to make the terminal usable
-sudo apt-get -y install git zsh
-curl -L http://install.ohmyz.sh | sh
