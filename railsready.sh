@@ -30,8 +30,8 @@ sudo service mongodb start
 #sudo apt-get -y install mongodb-clients
 
 
-echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
-echo "  PassengerRoot /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50" >> /etc/apache2/apache2.conf
+echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
+echo "  PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53" >> /etc/apache2/apache2.conf
 echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
 
 
