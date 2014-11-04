@@ -1,3 +1,4 @@
+sudo -i
 sudo apt-get -y update
 sudo apt-get -y install zlib1g-dev libreadline6-dev libyaml-dev ruby-dev
 sudo apt-get -y install wget curl build-essential clang bison openssl zlib1g libxslt1.1 libssl-dev libxslt1-dev libxml2 libffi-dev libyaml-dev libxslt-dev autoconf libc6-dev libreadline6-dev zlib1g-dev libcurl4-openssl-dev libtool
@@ -29,7 +30,7 @@ echo "mongodb-10gen hold" | sudo dpkg --set-selections
 sudo service mongodb start
 sudo apt-get -y install mongodb-clients
 
-sudo -i
+
 echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
 echo "  PassengerRoot /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50" >> /etc/apache2/apache2.conf
 echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
