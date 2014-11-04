@@ -2,6 +2,7 @@ sudo -i
 sudo apt-get -y update
 sudo apt-get -y install zlib1g-dev libreadline6-dev libyaml-dev ruby-dev
 sudo apt-get -y install wget curl build-essential clang bison openssl zlib1g libxslt1.1 libssl-dev libxslt1-dev libxml2 libffi-dev libyaml-dev libxslt-dev autoconf libc6-dev libreadline6-dev zlib1g-dev libcurl4-openssl-dev libtool
+sudo apt-get install libreadline6 libreadline6-dev
 #remove original ruby
 sudo apt-get -y remove ruby
 apt-get -y install apache2-mpm-worker
