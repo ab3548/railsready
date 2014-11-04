@@ -27,7 +27,7 @@ sudo apt-get update
 sudo apt-get install mongodb-10gen
 echo "mongodb-10gen hold" | sudo dpkg --set-selections
 sudo service mongodb start
-sudo apt-get -y install mongodb-clients
+#sudo apt-get -y install mongodb-clients
 
 
 echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.50/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
