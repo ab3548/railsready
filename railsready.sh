@@ -32,6 +32,8 @@ sudo service mongodb start
 rm  /etc/apache2/sites-enabled/000-default.conf
 
 chown www-data /vagrant/
+ln -s /vagrant /var/www/api.bemyeyes.org
+chown www-data /var/www/api.bemyeyes.org
 
 echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
 echo "  PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53" >> /etc/apache2/apache2.conf
@@ -39,14 +41,15 @@ echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
 echo "ServerName \"localhost\"" >> /etc/apache2/apache2.conf
 
 touch /etc/apache2/sites-enabled/bemyeyes
+echo "<VirtualHost *:3000>
+    DocumentRoot /var/www/api.bemyeyes.org/public
+    <Directory /var/www/api.bemyeyes.org/public>
+      Options Indexes FollowSymLinks
+      AllowOverride None
+      Require all granted
+    </Directory>
+</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes
 
-echo "<VirtualHost *:3000>" >> /etc/apache2/sites-enabled/bemyeyes
-echo "    DocumentRoot /vagrant/public" >> /etc/apache2/sites-enabled/bemyeyes
-echo "    <Directory /vagrant/public>" >> /etc/apache2/sites-enabled/bemyeyes
-echo "        Allow from all" >> /etc/apache2/sites-enabled/bemyeyes
-echo "        Options -MultiViews" >> /etc/apache2/sites-enabled/bemyeyes
-echo "    </Directory>" >> /etc/apache2/sites-enabled/bemyeyes
-echo "</VirtualHost>" >> /etc/apache2/sites-enabled/bemyeyes
 
 echo "Listen 3000" >>/etc/apache2/ports.conf
 
