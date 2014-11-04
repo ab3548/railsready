@@ -29,7 +29,7 @@ echo "mongodb-10gen hold" | sudo dpkg --set-selections
 sudo service mongodb start
 #sudo apt-get -y install mongodb-clients
 
-
+rm  /etc/apache2/sites-enabled/000-default.conf
 addgroup nobody
 chown nobody /vagrant/
 echo "User nobody" >> /etc/apache2/apache2.conf
