@@ -30,10 +30,9 @@ sudo service mongodb start
 #sudo apt-get -y install mongodb-clients
 
 rm  /etc/apache2/sites-enabled/000-default.conf
-addgroup nobody
-chown nobody /vagrant/
-echo "User nobody" >> /etc/apache2/apache2.conf
-echo "Group nobody" >> /etc/apache2/apache2.conf
+
+chown www-data /vagrant/
+
 echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
 echo "  PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53" >> /etc/apache2/apache2.conf
 echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
