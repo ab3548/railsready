@@ -36,7 +36,7 @@ chown www-data /vagrant/
 echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so" >> /etc/apache2/apache2.conf
 echo "  PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.53" >> /etc/apache2/apache2.conf
 echo "  PassengerRuby  /usr/local/bin/ruby" >> /etc/apache2/apache2.conf
-
+echo "ServerName \"localhost\"" >> /etc/apache2/apache2.conf
 
 touch /etc/apache2/sites-enabled/bemyeyes
 
