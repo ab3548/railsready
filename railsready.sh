@@ -56,5 +56,5 @@ bundle install
 apachectl -k restart
 
 #just to make the terminal usable
-sudo apt-get install git zsh
+sudo apt-get -y install git zsh
 curl -L http://install.ohmyz.sh | sh
