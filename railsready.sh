@@ -8,6 +8,7 @@ apt-get -y install apache2-mpm-worker
 apt-get -y install apache2-threaded-dev
 apt-get -y install libapr1-dev
 apt-get -y install libaprutil1-dev
+sudo apt-get -y install libssl-dev
 cd /tmp
 wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
 tar -xvzf ruby-2.1.2.tar.gz
